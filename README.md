@@ -39,7 +39,7 @@ P.ej. `roxana.precioViaje(ludmila,10)` debe devolver 180.
 Agregar al modelo a la remisera Lucía, y a la cliente Melina.
 - **Lucía** es una remisera que hace reemplazos, o sea, cubre los turnos que las otras remiseras se tienen que tomar por alguna razón.
 Hay que informar a quién está reeemplazando Lucía.
-Lucía cobra lo mismo que la remisera al que está reemplazando.
+Lucía cobra lo mismo que la remisera a la que está reemplazando.
 - **Melina** es una cadeta que trabaja para los otros clientes de la remisería. En cada momento trabaja para un cliente, se debe informar para quién. El precio por kilómetro pactado con Melina es 3 pesos menos que el precio del cliente para el que esté trabajando en cada momento.
 
 P.ej. si Lucía está reemplazando a Mariela, y Melina está trabajando para Ludmila, entonces:
@@ -59,13 +59,33 @@ En este modelo simplificado, cuando la oficina recibe un viaje, hay dos remisera
 
 El objeto `oficina` debe entender estos mensajes:
 - `asignarRemiseras(remisera1, remisera2)`: establece las remiseras de primera y de segunda opción.
-- `cambiarPrimerRemiserarPor(remisera)`: cambia la remisera de primera opción por el que se indica.
-- `cambiarSegundoRemiseraPor(remisera)`: cambia la remisera de segunda opción por el que se indica.
+- `cambiarPrimerRemiseraPor(remisera)`: cambia la remisera de primera opción por el que se indica.
+- `cambiarSegundaRemiseraPor(remisera)`: cambia la remisera de segunda opción por el que se indica.
 - `intercambiarRemiseras()`: intercambia las remiseras de primera y segunda opción. O sea, la que era primera pasa a segunda, y viceversa.
-- `remiseraElegidaParaViaje(cliente, kms)`: devuelve la remisera que corresponde asignar a un viaje, dados el cliente y la cantidad de kilómetros.
-  El criterio es el siguiente: si para ese viaje, el precio de la segunda remisera es menor al de l primera con una diferencia de más de 30 pesos, entonces se elige la segunda remisera; si no, se elige el primero.
+
+- `remiseraElegidaParaViaje(cliente, kms)`: devuelve la remisera que corresponde 
+asignar a un viaje, dados el cliente y la cantidad de kilómetros.
+  El criterio es el siguiente: si para ese viaje, el precio de la 
+  segunda remisera es menor al de l primera con una diferencia de más de 30 pesos, 
+  entonces se elige la segunda remisera; si no, se elige el primero.
 
 Supongamos que en un momento dado la remisera de primera opción es Roxana, y el de segunda opción es Juana. En este caso
 - para un viaje de 10 kilómetros para Ana María, la remisera elegida es Juana, porque su precio de 200 pesos, es menor al de Roxana (300 pesos), y la diferencia es de más de 30 pesos.
 - si el viaje es para Teresa, entonces Roxana ofrece 220 pesos y Juana 200. El precio de Juana es menor, pero la diferencia no llega a 30 pesos. Por lo tanto, la remisera elegido es Roxana.
 - si el viaje es de 4 kilómetros para Teresa, entonces Roxana cobra 88 pesos y Juana 100. El precio de Roxana es menor pero la diferencia no es mayor a 30, por lo tanto Juana es la elegida.  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
